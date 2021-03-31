@@ -1,10 +1,15 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
+from flask import render_template
 import sqlite3
 
 app = Flask(__name__)
 DBPATH = "students.db"
+
+@app.route('/', methods=['GET', 'POST'])
+def render_home():
+    return render_template('index.html')
 
 @app.route("/create", methods=["POST"])
 def create_record():
