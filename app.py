@@ -75,7 +75,7 @@ def delete_record():
     This API endpoint deletes the details of a student record 
     when given the student id.
     """
-    student_id = request.args.get('student_id', None)
+    student_id = request.get_json.get('student_id', None)
     response = 'pls provide student_id to be deleted'
     if student_id:
         with sqlite3.connect(DBPATH) as conn:
