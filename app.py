@@ -64,7 +64,7 @@ def update_record():
     return jsonify('Pls. provide student details'), 200
     
 
-@app.route('/delete', methods=["GET"])
+@app.route('/delete', methods=["POST"])
 def delete_record():
     """
     This API endpoint deletes the details of a student record 
@@ -82,7 +82,7 @@ def delete_record():
     
     return jsonify(response), 200
 
-@app.route('/all')
+@app.route('/all', methods=["GET"])
 def return_all_records():
     # fetch all records.
     response = []
@@ -92,7 +92,7 @@ def return_all_records():
     
     return jsonify(response), 200
 
-@app.route('/createdb')
+@app.route('/createdb', methods=["GET"])
 def create_database():
     try:
         conn = sqlite3.connect('students.db')
